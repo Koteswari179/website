@@ -1,2 +1,139 @@
+1.Clone the Git Repository:
 
-hello -----------------------
+https://github.com/Koteswari179/website.git
+
+2.Install Node Modules:
+
+ 2.1 : cd frontend
+	npm install --force
+	npm i
+ 2.2 : cd backend
+	npm init -y
+	npm install express
+
+ 3 .open the backend folder in  connect.js ----change the password 
+  3.1  :CREATE DATABASE buy;
+	USE buy;
+
+
+4.create the table static 
+
+    4.1 ---users table :
+
+          CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    mobile VARCHAR(15) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+   4.2--- OTP Storage Table:
+      CREATE TABLE otp_storage (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    otp VARCHAR(10) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+    4.3 --- Address Table   
+	CREATE TABLE address (
+    	id INT NOT NULL AUTO_INCREMENT,
+    	user_id INT NOT NULL,
+    	flat_no VARCHAR(20) NOT NULL,
+    	plot_no VARCHAR(20) NOT NULL,
+    	area VARCHAR(100) NOT NULL,
+    	pincode VARCHAR(10) NOT NULL,
+    	mobile_number VARCHAR(15) NOT NULL,
+    	PRIMARY KEY (id)
+	);
+
+  4.4---- AllProducts Table
+   CREATE TABLE allproducts (
+    id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    brand VARCHAR(255) NOT NULL,
+    product_cost DECIMAL(10,2) NOT NULL,
+    description TEXT DEFAULT NULL,
+    category VARCHAR(255) DEFAULT NULL,
+    image_path VARCHAR(255) DEFAULT NULL,
+    rating INT DEFAULT NULL,
+    quantity INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE     CURRENT_TIMESTAMP,
+    available INT NOT NULL DEFAULT 0,
+    coupon_code VARCHAR(255) DEFAULT NULL,
+    discount_percentage DECIMAL(5,2) DEFAULT NULL,
+    minimum_purchase DECIMAL(10,2) DEFAULT NULL,
+    expiry_date DATE DEFAULT NULL,
+    PRIMARY KEY (id)
+	);
+
+   4.5  ----Cart_items Table
+
+   CREATE TABLE cart_items (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT DEFAULT NULL,
+    product_id INT DEFAULT NULL,
+    image_path VARCHAR(255) DEFAULT NULL,
+    price DECIMAL(10,2) DEFAULT NULL,
+    quantity INT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE     CURRENT_TIMESTAMP,
+    title VARCHAR(255) NOT NULL,
+    brand VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+    );
+  4.6 ---------Orders Table:
+
+  CREATE TABLE orders (
+    order_id VARCHAR(36) NOT NULL,
+    user_id INT DEFAULT NULL,
+    address VARCHAR(255) DEFAULT NULL,
+    product_id INT DEFAULT NULL,
+    title VARCHAR(255) DEFAULT NULL,
+    quantity INT DEFAULT NULL,
+    brand VARCHAR(255) DEFAULT NULL,
+    price DECIMAL(10,2) DEFAULT NULL,
+    image_path VARCHAR(255) DEFAULT NULL,
+    total_amount DECIMAL(10,2) DEFAULT NULL,
+    payment_mode VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(255) DEFAULT NULL,
+    cancellation_reason VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (order_id)
+   );
+
+   4.7  ----------Wishlist Table 
+  CREATE TABLE wishlist (
+    id INT NOT NULL AUTO_INCREMENT,
+    userId INT DEFAULT NULL,
+    productId INT DEFAULT NULL,
+    productTitle VARCHAR(255) DEFAULT NULL,
+    productDescription TEXT DEFAULT NULL,
+    productCost DECIMAL(10,2) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    imagePath VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+ 4.8  -------Rating Table 
+ CREATE TABLE rating (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    rating INT NOT NULL,
+    review TEXT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    INDEX (user_id),
+    INDEX (product_id)
+);
+
+5 npm start
+6.Create a new user with email yourgmail@gmail.com and an admin user with email flybuydefenders@mail.com using your application's registration process, then log in with the respective credentials.
+
+7. after login admin click on addproduct  should dispalying the stock entry 
+8 .clcik on addcoupons  should dispalying the coupon form
+9.click on logout.Logout the current user or admin.
