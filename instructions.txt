@@ -7,6 +7,11 @@ https://github.com/Koteswari179/website.git
  2.1 : cd frontend
 	npm install --force
 	npm i
+  
+
+
+
+npx update-browserslist-db@latest
  2.2 : cd backend
 	npm init -y
 	npm install express
@@ -132,8 +137,7 @@ https://github.com/Koteswari179/website.git
 );
 
 5 npm start
-6.Create a new user with email yourgmail@gmail.com and an admin user with email flybuydefenders@mail.com using your application's registration process, then log in with the respective credentials.
-
+6.We have restricted the admin mailid to flybuydefenders@gmail.com so u can use it for admin login and u to create a user for user login
 7. after login admin click on addproduct  should dispalying the stock entry 
-8 .clcik on addcoupons  should dispalying the coupon form
-9.click on logout.Logout the current user or admin.
+8 .click on addcoupons  should dispalying the coupon form
+9. click on logout.Logout the current user or admin.

@@ -93,11 +93,11 @@ const ProductList = () => {
 
   const categoryOptions = [
     { name: 'All', image: 'all.avif' }, // Added 'All' category
-    { name: "Men's Fashion", image: "mens.jpg"  },
-    { name: 'Fashion', image: 'mensfashion.webp' },
+    { name: "Men's Fashion", image: "men's.png"  },
+    { name: 'Fashion', image: 'fashion.jpeg' },
     { name: 'Kids', image: 'kids.jpg' },
     { name: 'Electronics', image: 'electronics.webp' },
-    { name: "Women", image: 'womens.avif' }, // Changed 'Women' to "Women's Fashion"
+    { name: "Women", image: "women's.jpeg" }, // Changed 'Women' to "Women's Fashion"
     { name: 'Appliances', image: 'appliances.webp' },
   ];
   
